@@ -1,0 +1,37 @@
+.select {
+  width: 200px;
+}
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+.cell:hover {
+  background-color: #ded1ec;
+}
+.cell_active {
+  composes: cell;
+  background-color: #6215b5;
+}
+
+.button_clean {
+  width: 120px;
+  height: 40px;
+  background-color: rgb(11, 154, 33);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.button_clean:hover {
+  background-color: rgb(53, 201, 75);
+}
+.table {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 60px;
+  list-style: none;
+}
