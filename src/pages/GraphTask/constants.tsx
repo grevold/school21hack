@@ -7,7 +7,7 @@ const colors: string[] = [
   "green",
   "purple",
   "black",
-  "white",
+  "turquoise",
 ];
 
 export const tableSizeOptions: DefaultOptionType[] = [
@@ -40,4 +40,16 @@ export const figuresOptions: DefaultOptionType[] = [
   { value: 8, label: "8" },
   { value: 9, label: "9" },
   { value: 10, label: "10" },
+];
+
+export const initialCells = [
+  { figure: 1, color: "blue", routes: [] },
+  { figure: 4, color: "red", routes: [] },
+  { figure: 7, color: "green", routes: [] },
+  { figure: 2, color: "blue", routes: [] },
+  { figure: 5, color: "red", routes: [] },
+  { figure: 8, color: "green", routes: [] },
+  { figure: 3, color: "blue", routes: [] },
+  { figure: 6, color: "red", routes: [] },
+  { figure: 9, color: "green", routes: [] },
 ];

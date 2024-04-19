@@ -1,6 +1,11 @@
 import { Button, Select } from "antd";
 import { useMemo, useState } from "react";
-import { colorsOptions, figuresOptions, tableSizeOptions } from "./constants";
+import {
+  colorsOptions,
+  figuresOptions,
+  initialCells,
+  tableSizeOptions,
+} from "./constants";
 import s from "./GraphTask.module.css";
 import { getAnswerByCellsArray } from "./utils/getAnswerByCellsArray";
 import { getArrayFrom0ToN } from "./utils/getArrayFrom0ToN";
@@ -10,15 +15,22 @@ export interface ICell {
   figure?: number;
 }
 
+export interface GraphCell {
+  color?: string;
+  figure?: number;
+  routes: number[];
+}
+
 interface IState {
   tableSize: number;
   cells: ICell[];
-  answer: number[];
+  answer: GraphCell[];
 }
 
 const initialState: IState = {
   tableSize: 3,
-  cells: getArrayFrom0ToN(3 * 3).map(() => ({})),
+  // cells: getArrayFrom0ToN(3 * 3).map(() => ({})),
+  cells: initialCells,
   answer: [],
 };
 
@@ -81,62 +93,67 @@ export const GraphTask = () => {
   return (
     <div>
       <h1>Задача на графы</h1>
-
-      <div className={s.buttonsPanel}>
-        <Select
-          options={tableSizeOptions}
-          onChange={handleTableSizeChange}
-          value={state.tableSize}
-        />
-
-        <Button
-          disabled={state.cells.every(
-            ({ color, figure }) => color === undefined && figure === undefined
-          )}
-          onClick={handleClear}
+      <div className={s.container}>
+        <ul
+          className={s.table}
+          style={{
+            gridTemplate: `repeat(${state.tableSize}, 1fr) / repeat(${state.tableSize}, 1fr)`,
+          }}
         >
-          Очистить
-        </Button>
-        <Button
-          disabled={
-            state.cells.length !== state.tableSize * state.tableSize ||
-            state.cells.some(
-              ({ color, figure }) => color === undefined || figure === undefined
-            )
-          }
-          onClick={handleSubmit}
-        >
-          Показать путь
-        </Button>
+          {cellsIds.map((id) => (
+            <li key={id} className={s.cell}>
+              <div>
+                <Select
+                  options={colorsOptions}
+                  value={state.cells[id].color}
+                  onChange={handleCellChange(id, "color")}
+                />
+                <Select
+                  options={figuresOptions}
+                  value={state.cells[id].figure}
+                  onChange={handleCellChange(id, "figure")}
+                />
+              </div>
+
+              <div style={{ color: state.cells[id].color }}>
+                {state.cells[id].figure}
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div className={s.buttonsPanel}>
+          <Select
+            className={s.select}
+            options={tableSizeOptions}
+            onChange={handleTableSizeChange}
+            value={state.tableSize}
+          />
+
+          <Button
+            disabled={state.cells.every(
+              ({ color, figure }) => color === undefined && figure === undefined
+            )}
+            onClick={handleClear}
+            className={s.button_clean}
+          >
+            Очистить
+          </Button>
+          <Button
+            disabled={
+              state.cells.length !== state.tableSize * state.tableSize ||
+              state.cells.some(
+                ({ color, figure }) =>
+                  color === undefined || figure === undefined
+              )
+            }
+            onClick={handleSubmit}
+            className={s.button_show_route}
+          >
+            Показать путь
+          </Button>
+        </div>
+        <div className={s.answer}>{JSON.stringify(state.answer)}</div>
       </div>
-
-      <ul
-        className={s.table}
-        style={{
-          gridTemplate: `repeat(${state.tableSize}, 1fr) / repeat(${state.tableSize}, 1fr)`,
-        }}
-      >
-        {cellsIds.map((id) => (
-          <li key={id} className={s.cell}>
-            <div>
-              <Select
-                options={colorsOptions}
-                value={state.cells[id].color}
-                onChange={handleCellChange(id, "color")}
-              />
-              <Select
-                options={figuresOptions}
-                value={state.cells[id].figure}
-                onChange={handleCellChange(id, "figure")}
-              />
-            </div>
-
-            <div style={{ color: state.cells[id].color }}>
-              {state.cells[id].figure}
-            </div>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };
