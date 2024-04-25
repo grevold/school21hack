@@ -1,5 +1,6 @@
 .buttonsPanel {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 16px;
@@ -19,6 +20,42 @@
   border: 1px solid gray;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   flex-direction: column;
+  font-size: 36px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.answer {
+  width: 600px;
+  height: 600px;
+  border: 1px solid black;
+}
+
+.select {
+  width: 100%;
+}
+
+.button_clean {
+  width: 100%;
+  background-color: rgb(198, 14, 14);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button_show_route {
+  width: 100%;
+  background-color: rgb(16, 137, 42);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
