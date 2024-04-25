@@ -1,9 +1,7 @@
 import { ICell } from "../GraphTask";
-import { findNeighbors } from "./findNeighbors";
-import { mapCellsToGraph } from "./mapCellsToGraph";
+import { buildGraph } from "./buildGraph";
 
 export const getAnswerByCellsArray = (cells: ICell[]): any[] => {
-  const graph = mapCellsToGraph(cells); //в эту переменную записывается граф с пустыми routes:[]
-
-  return findNeighbors(graph); // тут возвращается граф с записанными в routes маршрутами, то есть индексами ячеек
+  const graph = buildGraph(cells); //в эту переменную записывается граф с пустыми routes:[]
+  return graph;
 };

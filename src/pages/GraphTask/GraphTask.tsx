@@ -24,11 +24,11 @@ export interface GraphCell {
 interface IState {
   tableSize: number;
   cells: ICell[];
-  answer: GraphCell[];
+  answer: number[];
 }
 
 const initialState: IState = {
-  tableSize: 3,
+  tableSize: 4,
   // cells: getArrayFrom0ToN(3 * 3).map(() => ({})),
   cells: initialCells,
   answer: [],
