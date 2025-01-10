@@ -1,9 +1,8 @@
 import z from "zod";
 
 export enum RoutePath {
-  MainPage = "/",
   TableShulte = "/tableshulte",
-  GraphTask = "/graphTask",
+  GraphTask = "/",
 }
 
 export const ProductSchema = z.object({

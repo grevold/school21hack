@@ -10,7 +10,6 @@ function App() {
     <HashRouter>
       <Layout>
         <Routes>
-          <Route element={<MainPage />} path={RoutePath.MainPage} />
           <Route element={<TableShulte />} path={RoutePath.TableShulte} />
           <Route element={<GraphTask />} path={RoutePath.GraphTask} />
         </Routes>

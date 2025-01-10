@@ -8,10 +8,6 @@ interface IMenuItemClickEvent {
 
 const items = [
   {
-    label: <Link to={RoutePath.MainPage}>Главная</Link>,
-    key: RoutePath.MainPage,
-  },
-  {
     label: <Link to={RoutePath.TableShulte}>Таблица Шульте</Link>,
     key: RoutePath.TableShulte,
   },
