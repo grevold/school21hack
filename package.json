@@ -1,5 +1,6 @@
 {
   "name": "template-frontend",
+  "homepage":"https://grevold.github.io/school21hack/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,6 +28,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject",
