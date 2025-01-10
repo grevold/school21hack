@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/school21hack/static/css/main.3c5c77d1.css",
+    "main.js": "/school21hack/static/js/main.d9a7d4b4.js",
+    "static/js/453.3a40b424.chunk.js": "/school21hack/static/js/453.3a40b424.chunk.js",
+    "index.html": "/school21hack/index.html",
+    "main.3c5c77d1.css.map": "/school21hack/static/css/main.3c5c77d1.css.map",
+    "main.d9a7d4b4.js.map": "/school21hack/static/js/main.d9a7d4b4.js.map",
+    "453.3a40b424.chunk.js.map": "/school21hack/static/js/453.3a40b424.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c5c77d1.css",
+    "static/js/main.d9a7d4b4.js"
+  ]
+}
